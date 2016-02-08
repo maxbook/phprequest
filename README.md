@@ -3,7 +3,7 @@
 ## Super simple to use
 Request is designed to be the simplest way possible to make http calls in PHP.
 ```php
-require 'Request.php';
+require 'phprequest.php';
 $request = new Request();
 $res = $request->get('http://www.google.com');
 if (!$res['error'] && $res['statuscode'] == 200) {

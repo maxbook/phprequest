@@ -1,5 +1,5 @@
 <?php
-require './Request/Request.php';
+require './phprequest/phprequest.php';
 $request = new Request();
 $res = $request->get('http://www.google.com');
 if (!$res['error'] && $res['statuscode'] == 200) {
