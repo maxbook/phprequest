@@ -51,6 +51,7 @@ class Request
     curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $method);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
     curl_setopt($ch,CURLOPT_HTTPHEADER,$tempHeader);
+    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
     $curlres = curl_exec($ch);
     if ($this->_options['responseType']) {
       switch ($this->_options['responseType']) {
@@ -68,7 +69,8 @@ class Request
     return [
       "statuscode" => curl_getinfo($ch, CURLINFO_HTTP_CODE),
       "request" => curl_getinfo($ch),
-      "body" => $res
+      "body" => $res,
+      "error" => (!$curlres) ? curl_error($ch) : false
     ];
     curl_close($ch);
   }
