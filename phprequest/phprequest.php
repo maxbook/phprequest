@@ -131,5 +131,21 @@ class Request
   {
     return $this->baseRequest($url, 'DELETE', $params, $options);
   }
+  //CUSTOM
+  /**
+  * Execute une requete de methode DELETE
+  * @param string $url path url
+  * @param string $method http method POST|GET|UPDATE|PATCH|DELETE
+  * @param array[type<string>=>array[<key>=><value>]] $params OPTIONNAL data à envoyer, ex ['json'=>['key1'=>'value1', 'key2':'value2'...]]
+  *        type doit soit être 'json' soit 'form'
+  *        json set le header à 'Content-Type: application/json'
+  *        form set le header à 'Content-Type: application/x-www-form-urlencoded'
+  * @param array[type<string>=>array<mixed>] $option utilisé pour passer des options, actuellement il ni a que le header de personnalisable ici ex ['header'=>['header1', 'header2'...]]
+  * @return array['statuscode'=>integer, 'request'=>request<object>, 'body'=>response<array|string>]
+  */
+  public function custom($url, $method, $params, $options = [])
+  {
+    return $this->baseRequest($url, $method, $params, $options);
+  }
 }
 ?>
