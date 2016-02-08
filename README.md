@@ -1,3 +1,5 @@
+> Documentation in progress
+
 # PHPRequest - Lightweight PHP HTTP client
 
 ## Super simple to use
