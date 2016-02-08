@@ -6,8 +6,12 @@ Request is designed to be the simplest way possible to make http calls in PHP.
 require 'Request.php';
 $request = new Request();
 $res = $request->get('http://www.google.com');
-
-echo $res['body']; // Show the HTML for the Google homepage.
+if (!$res['error'] && $res['statuscode'] == 200) {
+  echo $res['body'];  // Show the HTML for the Google homepage.
+}
+else {
+  echo $res['error'];
+}
 ```
 
 ## Table of contents
